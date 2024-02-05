@@ -24,4 +24,12 @@ add_executable(DSA
         Graph/Graphs.h
         Graph/MST.cpp
         Graph/MST.cpp
+        Recursion/fibonacci.cpp
+        Recursion/recursion.h
+        Hashing/Hashing.cpp
+        Hashing/Hashing.h
+        "Dynamic Programing/DynamicPrograming.h"
+        "Dynamic Programing/DynamicPrograming.h"
+        "Dynamic Programing/Knapsack.cpp"
+        "Dynamic Programing/LongestCommonSubsequence.cpp"
 )
