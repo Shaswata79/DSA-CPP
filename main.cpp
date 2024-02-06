@@ -7,7 +7,7 @@ int main(){
     //LinkedListQueue::run();
     //BinarySearchTree::run();
     //runHeapExample();
-    //runHeapsortExample();
+    runHeapsortExample();
     //runGraphExample();
     //runPrimsMSTExample();
     //runKruskalMSTExample();

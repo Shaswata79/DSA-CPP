@@ -40,24 +40,27 @@ void swap(int A[], int i, int j){
 
 void heapify(int* A, int n){
     // number of leaf elements: (n+1)/2
-    // index of last leaf element's parent = (n/2)-1
+    // index of last leaf element's parent = (n/2)-1 if index starts from 0
 
-    for(int i = (n/2)-1; i >= 0; i--){
-        int x = 2*i + 1;    // Left child for current i
-        int y = x+1;        // Right child for current i
+    for(int i = (n/2)-1; i >= 0; i--){  // start from last leaf element's parent
+        int x = 2*i + 1;    // +1 because index starts from 0
+
+        if(x == n-1){   // edge case when we only have two elements in array
+            if(A[i] < A[x]){
+                swap(A, x, i);  // swap with the largest child
+            }
+        }
 
         while(x < n-1){
-            // Compare left and right children of current i
-            if(A[x] < A[y]){
-                x = y;  // x is the largest child
+            if(A[x] < A[x+1]){  // get the largest child if more than
+                x = x + 1;
             }
 
-            // Compare parent and largest child
             if(A[i] < A[x]){
-                swap(A, i, x);
-                i = x;
+                swap(A, x, i);  // swap with the largest child
+                i = x;               // propagate until we reach leaf
                 x = 2*i + 1;
-            }else{
+            } else{
                 break;
             }
         }
@@ -91,7 +94,8 @@ void runHeapExample() {
 }
 
 void runHeapsortExample(){
-    int a[] = {10, 20, 30, 25, 5, 40, 35};
+    //int a[] = {10, 20, 30, 25, 5, 40, 35};
+    int a[] = {3, 1, 2};
 
     std::cout << "---- Array ----" << std::endl;
     printArrayOrVector(a);
